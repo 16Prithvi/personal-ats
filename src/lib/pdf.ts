@@ -1,4 +1,7 @@
+import "pdf-parse/worker";
 import { PDFParse } from "pdf-parse";
+
+export const runtime = "nodejs";
 
 export interface ExtractedPdfResult {
   text: string;
@@ -30,7 +33,7 @@ export async function extractTextFromPdf(buffer: Buffer): Promise<ExtractedPdfRe
     // Clean and normalize text
     // Replace null bytes and strange control characters
     rawText = rawText.replace(/\0/g, "");
-    
+
     // Normalize excessive horizontal whitespace while preserving paragraph breaks
     const normalizedLines = rawText
       .split("\n")

@@ -4,6 +4,8 @@ import { analyzeResumeWithLLM, getServerLlmConfig, CustomLlmError, sanitizeError
 import { SAMPLE_ANALYSIS } from "@/lib/sampleData";
 import { AnalyzeApiResponse, ResumeMetadata } from "@/types/analysis";
 
+export const runtime = "nodejs";
+
 // Return config status without exposing secrets
 export async function GET() {
   const { hasServerKey, provider, model } = getServerLlmConfig();
